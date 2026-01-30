@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>متحف جيو كوت | Geo Koot Museum</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="mm.css">
+
+  <!-- مكتبة QR Scanner -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Geo Koot Logo">
+      <div class="titles">
+        <h1>متحف جيو كوت</h1>
+        <h2>Geo Koot Museum</h2>
+      </div>
+    </div>
+    <nav>
+      <button onclick="scrollToSection('about')">نبذة</button>
+      <button onclick="scrollToSection('tickets')">التذاكر</button>
+      <button onclick="scrollToSection('scanner')">ماسح الباركود</button>
+      <button onclick="scrollToSection('scoreboard')">لوحة النقاط</button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About -->
+    <section id="about" class="card about">
+      <h2>عن المتحف</h2>
+      <p>متحف جيو كوت هو مساحة تعليمية تفاعلية تُعرّف الزوار بتاريخ الأرض والعلوم والجيولوجيا بطريقة ممتعة ومبتكرة. يحتوي على أقسام علمية ومعارض تفاعلية وتجارب واقع افتراضي لجميع الأعمار.</p>
+      <p class="muted">ساعات العمل: 9 صباحًا — 6 مساءً | الموقع: الكويت — شارع الثقافة</p>
+    </section>
+
+    <!-- Tickets -->
+    <section id="tickets" class="card">
+      <h2>شراء التذاكر</h2>
+      <div class="tickets-grid" id="ticketsGrid"></div>
+    </section>
+
+    <!-- QR Scanner -->
+    <section id="scanner" class="card">
+      <h2>ماسح الباركود — اكسب نقاط</h2>
+      <div id="reader" style="width:100%; height:300px;"></div>
+      <p class="muted">اضغط زر "ابدأ المسح" ثم وجه الكاميرا إلى رمز QR داخل المتحف.</p>
+      <div style="margin-top:8px">
+        <button id="startScan" class="buy-btn">ابدأ المسح</button>
+        <button id="stopScan" class="buy-btn" style="background:#718096;margin-inline-start:8px">إيقاف</button>
+        <span id="scanStatus" class="muted" style="margin-inline-start:12px"></span>
+      </div>
+    </section>
+
+    <!-- Scoreboard -->
+    <section id="scoreboard" class="card">
+      <h2>لوحة النقاط</h2>
+      <table>
+        <thead>
+          <tr><th>الباركود</th><th>النقاط</th><th>التاريخ والوقت</th></tr>
+        </thead>
+        <tbody id="scoreTable"></tbody>
+      </table>
+      <div style="margin-top:12px;text-align:left">
+        <button onclick="resetData()" class="buy-btn" style="background:#e53e3e">مسح البيانات</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="card">
+    <p>© 2026 متحف جيو كوت | Geo Koot Museum</p>
+    <p>تابعنا على انستجرام: <a href="https://www.instagram.com/geo_kuwait/" target="_blank">@geo_kuwait</a></p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="box">
+      <h3 id="modalTitle">شراء تذكرة</h3>
+      <p id="modalDesc" class="muted"></p>
+      <div style="margin-top:10px">
+        <label>الكمية: <input id="qty" type="number" min="1" value="1"></label>
+      </div>
+      <p>المجموع: <strong id="totalPrice">0</strong> د.ك</p>
+      <div style="margin-top:12px;text-align:left">
+        <button id="confirmBuy" class="buy-btn">تأكيد الدفع</button>
+        <button onclick="closeModal()" class="buy-btn" style="background:#718096;margin-inline-start:8px">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="dg.js"></script>
+</body>
+</html>
