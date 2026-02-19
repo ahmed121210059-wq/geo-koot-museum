@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>جيو بارك الكويت | الصفحة الرئيسية</title>
+  <link rel="stylesheet" href="mm.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Side Menu -->
+  <div id="side-menu" class="side-menu">
+    <button class="close-btn" onclick="closeMenu()">×</button>
+    <ul>
+    <li class="account-menu">
+  <a href="#" id="account-btn">👤 الحساب ▾</a>
+  <ul id="account-options" style="display:none; list-style:none; padding:0; margin:0 0 0 15px;">
+    <li><a href="#" id="login-option">تسجيل الدخول</a></li>
+    <li><a href="#" id="logout-option">تسجيل الخروج</a></li>
+  </ul>
+</li>
+
+      <li><a href="museum-info.html">🏛️ من نحن</a></li>
+      <li><a href="museum-info.html">🖼️ المعارض والمرافق</a></li>
+      <li><a href="#tickets-section">🎫 شراء التذاكر</a></li>
+      <li><a href="#" onclick="alert('اتصل بنا:\nهاتف: 1234 5678\nكود العميل: GEO-KW-2026')">📞 اتصل بنا</a></li>
+      <li><a href="https://www.instagram.com/geo_kuwait/" target="_blank">📷 صفحتنا على إنستغرام</a></li>
+    </ul>
+  </div>
+  <div id="menu-overlay" class="overlay" onclick="closeMenu()"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <img src="https://i.pinimg.com/originals/3a/b7/ff/3ab7ff6d9563673d10679a0a5da455cc.jpg" alt="شعارنا"/>
+        <small>الكويت</small>
+      </div>
+      <div class="points-display">
+        نقاطك: <span id="points">0</span>
+      </div>
+      <button class="menu-toggle" onclick="openMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero / About Section -->
+  <section class="hero fade-in">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h2>مرحباً بك في جيوكوت </h2>اول متحف جيولوجي في الكويت 
+      متحف مفتوح يروي قصة الأرض والإنسان عبر العصور. اكتشف التكوينات الجيولوجية النادرة، تجارب الواقع الافتراضي، ومنطقة كيدز آريا ممتعة للأطفال.</p>
+        <a href="museum-info.html" class="btn">تعرف أكثر عن المتحف</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://i.pinimg.com/originals/cd/50/18/cd50186ce06e95969c6f233231d78b81.jpg" alt="جيو بارك - منظر طبيعي"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tickets Section -->
+  <section id="tickets-section" class="tickets">
+    <div class="container"> 
+      <h2 class="section-title">شراء التذاكر</h2>
+      <div class="tickets-grid">
+
+        <div class="ticket-card">
+          <h3>تذكرة المتحف العادية</h3>
+          <ul class="features">
+            <li>دخول كامل لجميع المسارات الجيولوجية</li>
+            <li>جولات يومية مجانية (ويكند)</li>
+            <li>إرشاد صوتي اختياري</li>
+          </ul>
+          <div class="price">4 د.ك</div>
+          <button class="btn buy-btn" data-ticket="المتحف العادي">شراء الآن</button>
+        </div>
+
+        <div class="ticket-card premium">
+          <h3>تجربة VR</h3>
+          <ul class="features">
+            <li> جلسة واقع الافتراضيVR</li>
+            <li>رحلة افتراضية عبر عصور الأرض</li>
+            <li>مدة الجلسة ٢٠–٣٠ دقيقة</li>
+          </ul>
+          <div class="price"> 3 د.ك</div>
+          <button class="btn buy-btn" data-ticket="VR">شراء الآن</button>
+        </div>
+
+        <div class="ticket-card kids">
+          <h3>تذكرة كيدز آريا</h3>
+          <ul class="features">
+            <li>دخول منطقة الأطفال التفاعلية</li>
+            <li>ألعاب تعليمية + ورش عمل</li>
+            <li>مناسبة للأعمار 1–10 سنة</li>
+          </ul>
+          <div class="price">2 د.ك</div>
+          <button class="btn buy-btn" data-ticket="كيدز آريا">شراء الآن</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QR Scanner Section -->
+  <section class="scanner-section">
+    <div class="container">
+      <h2 class="section-title">امسح الكود واجمع النقاط!</h2>
+      <p>كل نقطة تساوي خصم أو هدية مجانية في الزيارة القادمة.</p>
+
+      <div class="scanner-box">
+        <input type="file" id="qr-input" accept="image/*" capture="environment" style="display:none;"/>
+        <button class="btn scanner-btn" onclick="document.getElementById('qr-input').click()">
+          📷 افتح الكاميرا / امسح الباركود
+        </button>
+        <p class="note">(ملاحظة: الماسح حالياً تجريبي – يزيد نقطة واحدة عند الضغط للتوضيح)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Purchase Modal -->
+  <div id="purchase-modal" class="modal">
+    <div class="modal-content">
+      <h2>شراء التذكرة: <span id="ticket-name"></span></h2>
+      <input type="text" id="card-name" placeholder="اسم حامل البطاقة" />
+      <input type="text" id="card-number" placeholder="رقم البطاقة" />
+      <input type="text" id="card-exp" placeholder="تاريخ الانتهاء (MM/YY)" />
+      <input type="text" id="card-cvv" placeholder="CVV" />
+      <button id="purchase-btn">تأكيد الشراء</button>
+      <button onclick="closePurchaseModal()" class="close-modal-btn">إلغاء</button>
+    </div>
+  </div>
+
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <h2>تسجيل الدخول</h2>
+    <input type="text" id="login-name" placeholder="الاسم">
+    <input type="email" id="login-email" placeholder="البريد الإلكتروني">
+    <button id="login-btn">دخول</button>
+  </div>
+</div>
+
+  <footer>
+    <p>© 2026 جيو كوت الكويت – كل الحقوق محفوظة</p>
+  </footer>
+
+  <script src="dg.js"></script>
+</body>
+</html>
